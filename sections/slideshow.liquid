@@ -72,11 +72,10 @@
           </div>
         {%- else -%}
           <div class="rimage-background-wrapper lazyload--placeholder {% if block.settings.mobile_image != blank %}desktop-only{% endif %}">
-            <div class="rimage-outer-wrapper rimage-background lazyload--manual fade-in{% if section.settings.height == 'fixed' %} fixed-height-item{% endif %}"
-                data-bgset="{% render 'bgset', image: block.settings.image %}"
+            <div class="rimage-outer-wrapper rimage-background lazyloaded{% if section.settings.height == 'fixed' %} fixed-height-item{% endif %}"
                 data-sizes="auto"
                 data-parent-fit="cover"
-                style="background-position: {{ block.settings.image.presentation.focal_point }}">
+                style="background-image:url({{ block.settings.image | img_url: 'master' }}); background-position: {{ block.settings.image.presentation.focal_point }}">
               {%- if section.settings.height == 'adapt' -%}
                 {%- assign aspect_ratio = section.blocks.first.settings.image.aspect_ratio | default: 2.0 -%}
                 <div class="rimage-wrapper" style="padding-top:{{ 1 | divided_by: aspect_ratio | times: 100 }}%"></div>
@@ -90,11 +89,10 @@
           </div>
 
           {% if block.settings.mobile_image != blank %}
-            <div class="rimage-outer-wrapper rimage-background lazyload--manual mobile-only fade-in{% if section.settings.height == 'fixed' %} fixed-height-item{% endif %}"
-                 data-bgset="{% render 'bgset', image: block.settings.mobile_image %}"
+            <div class="rimage-outer-wrapper rimage-background lazyloaded mobile-only {% if section.settings.height == 'fixed' %} fixed-height-item{% endif %}"
                  data-sizes="auto"
                  data-parent-fit="cover"
-                 style="background-position: {{ block.settings.mobile_image.presentation.focal_point }}">
+                 style="background-image:url({{ block.settings.mobile_image | img_url: 'master' }}); background-position: {{ block.settings.mobile_image.presentation.focal_point }}">
               {%- if section.settings.height == 'adapt' -%}
                 {%- assign aspect_ratio = section.blocks.first.settings.mobile_image.aspect_ratio | default: 2.0 -%}
                 <div class="rimage-wrapper" style="padding-top:{{ 1 | divided_by: aspect_ratio | times: 100 }}%"></div>

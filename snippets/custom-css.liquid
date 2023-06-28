@@ -1,0 +1,34 @@
+<style>
+@media (min-width: 768px){
+.cc-animate-enabled [data-cc-animate] {
+    opacity: 1!important;
+}}
+@media (min-width: 1040px){
+.product-detail .gallery-size-small {
+    width: 35%;
+}
+/* body.template-product .product-form .buy-buttons-row .quantity-submit-row {
+    min-height: 265.19px;
+} */
+body.template-product .product-form .input-row script.dynamic-payment-button-template {
+    display: block;
+    visibility: hidden;
+    height: 78.8px;
+}
+.product-form .quantity-submit-row .shopify-payment-button {
+    min-height: 78.8px;
+}
+.template-collection .collection-listing .product-list .product-block .block-inner:not([style]) {
+    padding-bottom: 30px;
+}  
+}
+.jdgm-prev-badge__text {
+    visibility: unset!important;
+}
+{% if canonical_url contains '/pages/reviews' %} 
+      div#judgeme_all_reviews_page {
+          min-height: 100vh;
+      }
+{% endif %}
+
+</style>
